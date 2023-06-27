@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <h1>PokeDex Advanced</h1>
-        <span class="menu-spacer"></span>
-        <div>
-            <a mat-button> Categorias </a>
-            <a mat-button> Pokemons </a>
-
-        </div>
-    </mat-toolbar-row>
-
+  <mat-toolbar-row>
+    <h1>PokeDex Advanced</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button routerLink="/category-list" routerLinkActive="active"> Categorias </a>
+      <a mat-button routerLink="/pokemon-list" routerLinkActive="active"> Pokemons </a>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
+
+

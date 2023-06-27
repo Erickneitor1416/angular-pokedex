@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-observable',
   templateUrl: './observable.component.html',
   styleUrls: ['./observable.component.scss'],
 })
-export class ObservableComponent implements OnInit {
+export class ObservableComponent implements OnInit, OnDestroy {
   constructor() {}
+
+  subscriber: Subscription;
+  ngOnDestroy(): void {
+    if (this.subscriber) {
+      this.subscriber.unsubscribe();
+    }
+  }
 
   obs = new Observable((observer) => {
     setTimeout(() => {
@@ -19,19 +26,20 @@ export class ObservableComponent implements OnInit {
     setTimeout(() => {
       observer.next('3');
     }, 3000);
-    // setTimeout(() => {
-    //   observer.error('Error en el stream');
-    // }, 4000);
+    setTimeout(() => {
+      observer.error('Error en el stream');
+    }, 4000);
     setTimeout(() => {
       observer.complete();
     }, 5000);
   });
-  
+
   ngOnInit(): void {
-    this.obs.subscribe({
+    this.subscriber = this.obs.subscribe({
       next: (value) => console.log(value),
       error: () => console.log('Error'),
       complete: () => console.log('Complete'),
     });
+    console.log('After subscribe');
   }
 }

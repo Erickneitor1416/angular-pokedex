@@ -9,6 +9,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { ObservableComponent } from './observable/observable.component';
 import { CategoriesModule } from './categories/categories.module';
+import { RouterModule } from '@angular/router';
+import { CategoryListComponent } from './categories/category-list/category-list.component';
+import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [AppComponent, ToolbarComponent, ObservableComponent],
@@ -19,6 +22,11 @@ import { CategoriesModule } from './categories/categories.module';
     MatButtonModule,
     MatCardModule,
     CategoriesModule,
+    RouterModule.forRoot([
+      { path: 'category-list', component: CategoryListComponent },
+      { path: 'pokemon-list', component: PokemonListComponent },
+      { path: '', redirectTo: 'category-list', pathMatch: 'full' },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],
