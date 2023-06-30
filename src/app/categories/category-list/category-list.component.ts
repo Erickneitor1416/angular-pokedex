@@ -21,8 +21,9 @@ export class CategoryListComponent implements OnInit, OnDestroy {
     // console.log(this.categoriesService.getPokemonTypes());
     // this.categoryList = this.categoriesService.getPokemonTypes();
     this.subsCategoryList = this.categoriesService.getPokemonTypes().subscribe({
-      next: (data) => (this.categoryList = data),
+      next: (data) => (this.categoryList =data.results),
+      // next: (data) => console.log(JSON.stringify(data)),
     });
-    console.log(JSON.stringify(this.categoryList)); 
+    console.log(JSON.stringify(this.categoryList));
   }
 }

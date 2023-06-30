@@ -6,7 +6,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { RouterModule } from '@angular/router';
+import { PokemonListComponent } from '../pokemons/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [CategoryCardComponent, CategoryListComponent],
@@ -16,7 +17,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule,
-    
+    RouterModule.forChild([
+      { path: 'category-list', component: CategoryListComponent },
+    ]),
   ],
   exports: [CategoryCardComponent, CategoryListComponent],
 })
