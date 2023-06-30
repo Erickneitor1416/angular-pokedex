@@ -10,8 +10,6 @@ import { MatCardModule } from '@angular/material/card';
 import { ObservableComponent } from './observable/observable.component';
 import { CategoriesModule } from './categories/categories.module';
 import { RouterModule } from '@angular/router';
-import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { PokemonListComponent } from './pokemons/pokemon-list/pokemon-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PokemonsModule } from './pokemons/pokemons.module';

@@ -3,5 +3,11 @@
     <mat-card-title>{{ pokemonType.name | titlecase }}</mat-card-title>
   </mat-card-header>
   <img mat-card-image [src]="imageURL" />
-  <button mat-button routerLink="/pokemon-list" routerLinkActive="router-link-active" >Ver Pokemons</button>
+  <button
+    mat-button
+    [routerLink]="['/pokemon-list-by-type', categoryType]"
+    routerLinkActive="router-link-active"
+  >
+    Ver Pokemons
+  </button>
 </mat-card>

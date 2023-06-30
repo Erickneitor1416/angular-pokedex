@@ -32,9 +32,14 @@ export class CategoryService {
         'https://ui-avatars.com/api/?font-size=0.33&size=300&name=poison',
     },
   ]; */
+
   constructor(private http: HttpClient) {}
   getPokemonTypes(): Observable<any> {
     // return of(this.categories).pipe(delay(5000));
     return this.http.get('https://pokeapi.co/api/v2/type');
+  }
+  getPokemonsListByTypes(idType: number): Observable<any> {
+    // return of(this.categories).pipe(delay(5000));
+    return this.http.get(`https://pokeapi.co/api/v2/type/${idType}`);
   }
 }

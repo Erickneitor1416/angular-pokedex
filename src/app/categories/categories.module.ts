@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterModule } from '@angular/router';
-import { PokemonListComponent } from '../pokemons/pokemon-list/pokemon-list.component';
+
 
 @NgModule({
   declarations: [CategoryCardComponent, CategoryListComponent],
