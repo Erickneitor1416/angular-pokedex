@@ -9,21 +9,27 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class CategoryListComponent implements OnInit, OnDestroy {
   categoryList: any[];
-  subsCategoryList: Subscription;
+
   constructor(private categoriesService: CategoryService) {}
-  ngOnDestroy(): void {
-    if (this.subsCategoryList) {
-      this.subsCategoryList.unsubscribe;
-    }
-  }
+
+  subscriberCategoryList: Subscription;
 
   ngOnInit(): void {
-    // console.log(this.categoriesService.getPokemonTypes());
-    // this.categoryList = this.categoriesService.getPokemonTypes();
-    this.subsCategoryList = this.categoriesService.getPokemonTypes().subscribe({
-      next: (data) => (this.categoryList =data.results),
-      // next: (data) => console.log(JSON.stringify(data)),
-    });
-    console.log(JSON.stringify(this.categoryList));
+    //console.log(this.categoriesService.getPokemonTypes());
+    //this.categoryList = this.categoriesService.getPokemonTypes();
+    this.subscriberCategoryList = this.categoriesService
+      .getPokemonTypes()
+      .subscribe({
+        next: (data) => {
+          console.log(JSON.stringify(data));
+          this.categoryList = data.results;
+        },
+      });
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscriberCategoryList) {
+      this.subscriberCategoryList.unsubscribe();
+    }
   }
 }

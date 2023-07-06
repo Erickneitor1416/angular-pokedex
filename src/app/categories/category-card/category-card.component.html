@@ -1,7 +1,9 @@
-<mat-card class="pokemon-card">
-  <mat-card-header>
-    <mat-card-title>{{ pokemonType.name | titlecase }}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image [src]="imageURL" />
-  <button mat-button routerLink="/pokemon-list" routerLinkActive="router-link-active" >Ver Pokemons</button>
+<mat-card class="pokemon-type">
+    <mat-card-header>
+        <mat-card-title>{{pokemonType.name | titlecase }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="imageUrl">
+    <mat-card-actions>
+        <button mat-button [routerLink]="['/pokemon-list-by-type', categoryType]">Ver Pokemons</button>
+    </mat-card-actions>
 </mat-card>
