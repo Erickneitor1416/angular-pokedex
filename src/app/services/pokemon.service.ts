@@ -12,4 +12,9 @@ export class PokemonService {
   getPokemonDetails(id: number): Observable<any> {
     return this.httpClient.get(`${environment.pokedexBaseUrl}/pokemon/${id}`);
   }
+  getPokemons(): Observable<any> {
+    return this.httpClient.get(
+      `${environment.pokedexBaseUrl}/pokemon?limit=151`
+    );
+  }
 }
