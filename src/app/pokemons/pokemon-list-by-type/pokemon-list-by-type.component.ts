@@ -9,18 +9,26 @@ import { CategoryService } from 'src/app/services/category.service';
 })
 export class PokemonListByTypeComponent implements OnInit {
   pokemonList: any;
+  pokemonIds: any[];
+
   constructor(
     private categoryService: CategoryService,
-    private activeteRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.activeteRoute.paramMap.subscribe((param) => {
+    this.activateRoute.paramMap.subscribe((param) => {
       let id = param.get('id');
-      console.log('parameter get from outside', id);
-      this.categoryService.getPokemonsListByTypes(Number(id)).subscribe({
-        next: (data) => {this.pokemonList= data.pokemon
-        console.log(JSON.stringify(this.pokemonList.pokemon.pokemon));
+      this.categoryService.getPokemonDetailsType(Number(id)).subscribe({
+        next: (data) => {
+          this.pokemonList = data.pokemon;
+          this.pokemonIds = [];
+          this.pokemonList.forEach((item: any) => {
+            this.pokemonIds.push(
+              item.pokemon.url.slice(0, -1).split('/').pop()
+            );
+          });
+          console.log(JSON.stringify(this.pokemonIds));
         },
       });
     });

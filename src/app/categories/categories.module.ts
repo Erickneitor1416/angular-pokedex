@@ -8,7 +8,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [CategoryCardComponent, CategoryListComponent],
   imports: [
@@ -21,6 +20,6 @@ import { RouterModule } from '@angular/router';
       { path: 'category-list', component: CategoryListComponent },
     ]),
   ],
-  exports: [CategoryCardComponent, CategoryListComponent],
+  exports: [CategoryListComponent, CategoryCardComponent],
 })
 export class CategoriesModule {}

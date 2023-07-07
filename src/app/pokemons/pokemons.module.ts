@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PokemonListComponent } from './pokemon-list/pokemon-list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { RouterModule } from '@angular/router';
 import { PokemonListByTypeComponent } from './pokemon-list-by-type/pokemon-list-by-type.component';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { PokemonDetailComponent } from './pokemon-detail/pokemon-detail.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  declarations: [PokemonListComponent, PokemonListByTypeComponent],
+  declarations: [
+    PokemonListComponent,
+    PokemonListByTypeComponent,
+    PokemonDetailComponent,
+  ],
   imports: [
     CommonModule,
     MatGridListModule,
-    MatProgressBarModule,
+    MatCardModule,
     RouterModule.forChild([
       { path: 'pokemon-list', component: PokemonListComponent },
       {
