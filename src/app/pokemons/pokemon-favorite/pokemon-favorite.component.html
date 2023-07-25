@@ -1,0 +1,8 @@
+<ng-container *ngIf="data">
+    <button *ngIf="!data.isFavorite" mat-icon-button (click)="markFavorite(true)" >
+      <mat-icon> favorite_outline </mat-icon>
+    </button>
+    <button *ngIf="data.isFavorite" mat-icon-button (click)="markFavorite(false)" >
+      <mat-icon> favorite </mat-icon>
+    </button>
+  </ng-container>
