@@ -1,0 +1,85 @@
+<mat-card>
+    <mat-card-title>Sign-Up</mat-card-title>
+  
+    <mat-card-content>
+      <form [formGroup]="registerForm" (ngSubmit)="submit()">
+        <p *ngIf="error">
+          {{ error }}
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Username</mat-label>
+            <input
+              matInput
+              type="text"
+              id="username"
+              formControlName="username"
+            />
+            <mat-hint
+              *ngIf="
+                registerFormControls.username.invalid &&
+                (registerFormControls.username.dirty ||
+                  registerFormControls.username.touched)
+              "
+            >
+              <ng-container
+                *ngIf="registerFormControls.username.errors?.['required']"
+                >Usuario requerido</ng-container
+              >
+              <ng-container
+                *ngIf="registerFormControls.username.errors?.['minlength']"
+                >Usuario debe tener al menos 4 caracteres</ng-container
+              >
+              <ng-container *ngIf="registerFormControls.username.errors?.['email']">
+                El usuario debe ser un email
+              </ng-container>
+            </mat-hint>
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              [type]="hide ? 'password' : 'text'"
+              matInput
+              id="password"
+              formControlName="password"
+            />
+            <mat-hint
+              *ngIf="
+                registerFormControls.password.invalid &&
+                (registerFormControls.password.dirty ||
+                  registerFormControls.password.touched)
+              "
+            >
+              <ng-container
+                *ngIf="registerFormControls.password.errors?.['required']"
+              >
+                Contraseña requerida
+              </ng-container>
+              <ng-container
+                *ngIf="registerFormControls.password.errors?.['minlength']"
+              >
+                Contraseña debe tener al menos 4 caracteres
+              </ng-container>
+            </mat-hint>
+            <button
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+              (click)="hide = !hide"
+              mat-icon-button
+              matSuffix
+            >
+              <mat-icon>
+                {{ hide ? "visibility_off" : "visibility" }}
+              </mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+        <div class="button">
+          <button type="submit" mat-raised-button color="primary">Sign-Up</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

@@ -12,6 +12,12 @@
   </mat-card-content>
 
   <mat-card-actions align="end">
+    <button
+      mat-button
+      color="primary"
+      [routerLink]="['/pokemon-details', pokemonData.id]"
+    >Ver detalles</button>
+    Back
     <app-pokemon-favorite [pokemonData]="pokemonData"></app-pokemon-favorite>
   </mat-card-actions>
 </mat-card>
