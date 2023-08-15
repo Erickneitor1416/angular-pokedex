@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 import { SecurityModule } from './security/security.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { SecurityModule } from './security/security.module';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
+    MatIconModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'category-list', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent },

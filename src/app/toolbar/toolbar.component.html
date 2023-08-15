@@ -9,8 +9,20 @@
       <a mat-button routerLinkActive="active" routerLink="/pokemon-list">
         Pokemons
       </a>
-      <a mat-button routerLinkActive="active" routerLink="/statistics-list"> Estadisticas </a>
-      <a mat-button routerLinkActive="active" routerLink="/pokemon-my-favorites"> Mis Favoritos </a>
+      <a mat-button routerLinkActive="active" routerLink="/statistics-list">
+        Estadisticas
+      </a>
+      <a
+        mat-button
+        routerLinkActive="active"
+        routerLink="/pokemon-my-favorites"
+      >
+        Mis Favoritos
+      </a>
+      <button mat-button color="accent" *ngIf="userData" (click)="logout()">
+        <mat-icon>person</mat-icon>
+        {{ userData.email }}
+      </button>
     </div></mat-toolbar-row
   ></mat-toolbar
 >

@@ -44,7 +44,7 @@ import {MatInputModule} from '@angular/material/input';
         component: PokemonListByTypeComponent,
       },
       { path: 'pokemon-my-favorites', component: MyFavoritesComponent },
-      { path: 'pokemon-details/:id', component: PokemonDetailPageComponent },
+      { path: 'pokemon-details/:id', component: PokemonDetailPageComponent }
     ]),
   ],
 })
