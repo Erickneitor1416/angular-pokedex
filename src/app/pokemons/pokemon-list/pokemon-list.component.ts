@@ -9,14 +9,15 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit, OnDestroy {
   subscribe: Subscription;
-  
+  pokemonIds: any[];
   constructor(private pokemonService: PokemonService) {}
   ngOnDestroy(): void {
     this.subscribe.unsubscribe();
   }
-  pokemonIds: any[];
-  pokemonList = [];
   ngOnInit(): void {
+    this.getPokemons();
+  }
+  getPokemons() {
     this.subscribe = this.pokemonService.getPokemons().subscribe({
       next: (response) => {
         this.pokemonIds = [];
